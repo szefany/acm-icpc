@@ -40,7 +40,6 @@ bool inQueue[N];
 static const int Q = N;
 
 int main () {
-    freopen ("input.txt", "r", stdin);
     scanf ("%d%d", &n, &m);
     for (int i = 1; i <= m; ++ i) {
         int u, v;
