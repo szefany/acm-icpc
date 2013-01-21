@@ -1,3 +1,5 @@
+// Codeforces Round #162 (Div. 1)
+// Problem C, Choosing Balls
 #include <iostream>
 #include <cstdio>
 #include <cstring>

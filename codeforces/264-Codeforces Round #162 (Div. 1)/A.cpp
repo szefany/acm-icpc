@@ -1,3 +1,5 @@
+// Codeforces Round #162 (Div. 1)
+// Problem A, Escape from Stones
 #include <iostream>
 #include <cstdio>
 #include <cstring>

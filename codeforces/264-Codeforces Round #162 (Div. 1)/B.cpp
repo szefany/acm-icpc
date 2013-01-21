@@ -1,3 +1,5 @@
+// Codeforces Round #162 (Div. 1)
+// Problem B, Good Sequences
 #include <iostream>
 #include <cstdio>
 #include <cstring>
