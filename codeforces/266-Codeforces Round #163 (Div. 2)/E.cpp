@@ -126,7 +126,6 @@ int query (int u, int l, int r, int k, int left) {
 }
 
 int main () {
-    freopen ("input.txt", "r", stdin);
     scanf ("%d%d", &n, &m);
     for (int i = 1; i <= n; ++ i) {
         scanf ("%d", &elements[i]);
