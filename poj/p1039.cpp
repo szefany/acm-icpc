@@ -89,31 +89,15 @@ int n;
 Point points[N][2];
 
 double check (Point a, Point b) {
-    if (!cross (Segment (points[1][0], points[1][1]), Line (a, b))) {
-        return -INF;
-    }
-    Point start = cross_point (Segment (points[1][0], points[1][1]), Line (a, b));
-    Line l (start, a.x > b.x ? a : b);  
-    Segment s (start, a.x > b.x ? a : b);
-    for (int i = 1; i < n; ++ i) {
-        for (int j = 0; j < 2; ++ j) {
-            if (strict_cross (Segment (points[i][j], points[i + 1][j]), s)) {
-                return -INF;
-            }
-        }
-    }
-    double result = -INF;
+    Line l (a, b);
     for (int i = 1; i <= n; ++ i) {
-        int x1 = sgn (det (l.b - l.a, points[i][1] - l.a));
-        int x2 = sgn (det (l.b - l.a, points[i][0] - l.a));
-        if (x1 * x2 > 0) {
+        if (!cross (Segment (points[i][0], points[i][1]), l)) {
             return -INF;
         }
         if (i < n) {
             for (int j = 0; j < 2; ++ j) {
-                Segment s (points[i][j], points[i + 1][j]);
-                bool crossed = strict_cross (s, l);
-                if (crossed) {
+                Segment s = Segment (points[i][j], points[i + 1][j]);
+                if (strict_cross (s, l)) {
                     Point p = cross_point (s, l);
                     return p.x;
                 }
@@ -150,3 +134,4 @@ int main () {
     }
     return 0;
 }
+
