@@ -160,7 +160,6 @@ void insert (vector<Point> &v, Point a, Point b, Point c, Point d) {
 }
 
 int main () {
-    freopen ("input.txt", "r", stdin);
     char name[2];
     while (scanf ("%s", name) != EOF) {
         if (*name == '.') {
