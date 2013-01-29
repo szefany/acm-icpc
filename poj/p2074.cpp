@@ -74,7 +74,6 @@ void insert (Point s1, Point s2, Point a, Point b) {
 }
 
 int main () {
-    freopen ("input.txt", "r", stdin);
     while (house.input ()) {
         property.input ();
         scanf ("%d", &n);
