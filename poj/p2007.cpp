@@ -19,13 +19,6 @@ struct Point {
 vector<Point> points;
 Point p0;
 
-int sgn (double x) {
-    if (x < -EPS) {
-        return -1;
-    }
-    return x < EPS ? 0 : 1;
-}
-
 double det (Point a, Point b) {
     return a.x * b.y - a.y * b.x;
 }
