@@ -5,7 +5,7 @@
 #include <algorithm>
 using namespace std;
 
-const double EPS = 1E-8;
+const double EPS = 1e-8;
 
 struct Point {
     int x, y;
