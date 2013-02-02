@@ -108,7 +108,6 @@ double check (Point a, Point b) {
 }
 
 int main () {
-    freopen ("input.txt", "r", stdin);
     while (scanf ("%d", &n) != EOF && n > 0) {
         for (int i = 1; i <= n; ++ i) {
             points[i][0].input ();
