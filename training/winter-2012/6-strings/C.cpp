@@ -60,7 +60,6 @@ void debug () {
 }
 
 int main () {
-    freopen ("input", "r", stdin);
     scanf ("%s", string);
     length = strlen (string);
     build (string);
