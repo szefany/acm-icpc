@@ -1,7 +1,6 @@
 // URAL 1706, Cipher Message 2
 #include <cstdio>
 #include <cstring>
-#include <algorithm>
 
 const int N = 8000;
 
@@ -60,7 +59,6 @@ int solve () {
     for (int i = 1; i <= node_count; ++ i) {
         rank[i] = i;
     }
-    std::sort (rank + 1, rank + node_count + 1, cmp);
     int result = 0;
     for (int i = node_count; i >= 1; -- i) {
         int u = rank[i];
