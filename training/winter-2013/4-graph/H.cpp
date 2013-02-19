@@ -4,8 +4,6 @@
 
 #define foreach(i, v) for (__typeof((v).begin()) i = (v).begin(); i != (v).end(); ++ i)
 
-using std::min;
-
 const int N = 1000;
 
 std::vector <int> neighbors[N];
