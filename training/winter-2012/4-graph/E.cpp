@@ -5,7 +5,7 @@
 using namespace std;
 
 const int N = 1005;
-const int M = 40000;
+const int M = 50000;
 
 struct Graph {
     Graph () {}
