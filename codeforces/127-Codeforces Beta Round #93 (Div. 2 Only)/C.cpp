@@ -5,8 +5,8 @@
 const double EPS = 1E-8;
 const double INF = 1E10;
 
-double answer;
 int y1, y2, t1, t2, x1, x2, t0;
+double answer;
 
 int sgn (double x) {
     if (x < -EPS) {
