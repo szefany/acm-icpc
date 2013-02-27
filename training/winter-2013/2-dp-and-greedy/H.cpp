@@ -53,7 +53,7 @@ void topo_sort (int* queue, int& length, int vs) {
     }
 }
 
-void update (int &target_value, int &target_energy, int value, int energy) {
+void update (int& target_value, int& target_energy, int value, int energy) {
     if (value > target_value || value == target_value && energy < target_energy) {
         target_value = value;
         target_energy = energy;
