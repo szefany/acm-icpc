@@ -21,7 +21,6 @@ void split(string buffer, std::vector<string> &a) {
 }
 
 int main() {
-    freopen("input", "r", stdin);
     int test_count;
     scanf("%d", &test_count);
     for (int t = 1; t <= test_count; ++ t) {
