@@ -113,7 +113,6 @@ int solve(int u) {
 }
 
 int main() {
-    freopen("input", "r", stdin);
     while (scanf("%d%d", &n, &m) && n + m > 0) {
         initialise();
         for (int i = 0; i < n - 1; ++ i) {
