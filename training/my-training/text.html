@@ -9,22 +9,81 @@
 </head>
 <body>
 <h2 id="codeforces-258d-little-elephant-and-broken-sorting">Codeforces 258D Little Elephant and Broken Sorting</h2>
-<p>Problem: 数列A，按顺序给出M次交换操作(x, y)，每次操作有50%概率不执行。求最终逆序对数量的期望。<br></br> Solution: probability[x, y]表示A[x] &gt; A[y]的概率。对于每个(x, y)对所有i进行更新，并保证probability[x, y] = probability[y, x] = 0.5.</p>
+<p><em>problem</em>:</p>
+<blockquote>
+<p>数列A，按顺序给出M次交换操作(x, y)，每次操作有50%概率不执行。求最终逆序对数量的期望。</p>
+</blockquote>
+<p><em>solution</em>:</p>
+<blockquote>
+<p>probability[x, y]表示A[x] &gt; A[y]的概率。对于每个(x, y)对所有i进行更新，并保证probability[x, y] = probability[y, x] = 0.5.</p>
+</blockquote>
 <h2 id="zoj-3509-island-communication">ZOJ 3509 Island Communication</h2>
-<p>Problem: 无向图，三种操作：加边，删边，查询两点是否连通。删过的边不会再加进来。N &lt; 500, M &lt; 50000. <br></br> Solution: 维护图中不存在环即可保证dfs的复杂度在O(N)。每次加边时如果形成了环，就在环里找到之后最早被删去的边并把他干掉。</p>
+<p><em>problem</em>:</p>
+<blockquote>
+<p>无向图，三种操作：加边，删边，查询两点是否连通。删过的边不会再加进来。\(N \lt 500, M \lt 50000\).</p>
+</blockquote>
+<p><em>solution</em>:</p>
+<blockquote>
+<p>维护图中不存在环即可保证dfs的复杂度在O(N)。每次加边时如果形成了环，就在环里找到之后最早被删去的边并把他干掉。</p>
+</blockquote>
 <h2 id="codeforces-235b-lets-play-osu">Codeforces 235B Let's Play Osu!</h2>
-<p>Problem: 连续进行N次操作，每次操作有prob[i]的概率画O，(1 - prob[i])的概率画X。对于操作完得到的序列，连续的x个O可以累加x^2的分数，序列总得分为每段连续的O的得分之和。求期望得分。N &lt; 100000. <br></br> Solution: dp[i]表示序列的前i项的期望得分，则dp[i] = dp[i - 1] + g[i]，其中g[i]为当前第i位的得分。显然，这一位有prob[i]的概率是一段O的末尾，得分应累加prob[i] * 1。在此基础上，有prob[i] * prob[i - 1]的概率是以OO作为末尾，此时最后一位的价值为4 - 1 = 3，其中有1分已经在prob[i]的部分算过，因此累加得分是prob[i] * prob[i - 1] * 2。以此类推，可以得到\(g[i] = prob[i] \times 1 + prob[i] \times prob[i - 1] \times 2 + \ldots + \prod_{j = 1}^{i} prob[j]\)。这里g[i]可以从g[i - 1]推过来，总复杂度是O(n)。</p>
+<p><em>problem</em>:</p>
+<blockquote>
+<p>连续进行N次操作，每次操作有prob[i]的概率画O，(1 - prob[i])的概率画X。对于操作完得到的序列，连续的x个O可以累加x^2的分数，序列总得分为每段连续的O的得分之和。求期望得分。\(N \lt 100000\).</p>
+</blockquote>
+<p><em>solution</em>:</p>
+<blockquote>
+<p>dp[i]表示序列的前i项的期望得分，则dp[i] = dp[i - 1] + g[i]，其中g[i]为当前第i位的得分。显然，这一位有prob[i]的概率是一段O的末尾，得分应累加prob[i] * 1。在此基础上，有prob[i] * prob[i - 1]的概率是以OO作为末尾，此时最后一位的价值为4 - 1 = 3，其中有1分已经在prob[i]的部分算过，因此累加得分是prob[i] * prob[i - 1] * 2。以此类推，可以得到\(g[i] = prob[i] \times 1 + prob[i] \times prob[i - 1] \times 2 + \ldots + \prod_{j = 1}^{i} prob[j]\)。这里g[i]可以从g[i - 1]推过来，总复杂度是O(n)。</p>
+</blockquote>
 <h2 id="codeforces-229e-gifts">Codeforces 229E Gifts</h2>
-<p>Problem: M种礼物，每种礼物若干个，有不同的价值，需要在所有礼物中选择N个出来。每选择一组中的s个，对方会在这一组中随机返回s个回来。选的时候采取最优策略，即选择一种取法，尽量使自己拿到最大的N个。如果有多种取法，在其中随机选择一种。问最终能拿到最大的N个礼物的概率。N, M &lt; 1000.<br></br></p>
-<p>Solution: 注意到取法必然是这样子的：假设第N大的礼物价值是x，那么每一组当中所有大于x的都是必须取的，把个数记为must[i]。每一组中等于x的礼物是可选的，个数记为optional[i]。所有的optional[i]之和为total，我们需要在其中选择N - Sigma{must[i]}个出来。<br></br></p>
-<p>prob[i, j]表示前i组，已经取了j个optional的礼物的概率。很重要的一点是，已经取的optional的数量，会影响到当前这一组礼物是否取optional的概率。如果当前已经取了j个optional，那么当前取optional的概率为p = C[left - 1, total - j - 1] / C[left, total - j]，其中left是从当前组到最后一组还剩下的optional的数量。<br></br></p>
+<p><em>problem</em>:</p>
+<blockquote>
+<p>M种礼物，每种礼物若干个，有不同的价值，需要在所有礼物中选择N个出来。每选择一组中的s个，对方会在这一组中随机返回s个回来。选的时候采取最优策略，即选择一种取法，尽量使自己拿到最大的N个。如果有多种取法，在其中随机选择一种。问最终能拿到最大的N个礼物的概率。\(N, M \lt 1000\).</p>
+</blockquote>
+<p><em>solution</em>:</p>
+<blockquote>
+<p>注意到取法必然是这样子的：假设第N大的礼物价值是x，那么每一组当中所有大于x的都是必须取的，把个数记为must[i]。每一组中等于x的礼物是可选的，个数记为optional[i]。所有的optional[i]之和为total，我们需要在其中选择N - Sigma{must[i]}个出来。</p>
+</blockquote>
+<blockquote>
+<p>prob[i, j]表示前i组，已经取了j个optional的礼物的概率。很重要的一点是，已经取的optional的数量，会影响到当前这一组礼物是否取optional的概率。如果当前已经取了j个optional，那么当前取optional的概率为p = C[left - 1, total - j - 1] / C[left, total - j]，其中left是从当前组到最后一组还剩下的optional的数量。</p>
+</blockquote>
+<blockquote>
 <p>转移的时候分两种情况：</p>
+</blockquote>
+<blockquote>
 <ol style="list-style-type: decimal">
 <li>optional[i] = 0: prob[i, j] = prob[i - 1, j] / C[size, must]</li>
 <li>optional[i] != 0: prob[i, j] = prob[i - 1, j - 1] * p / C[size, must + 1] + prob[i - 1, j] * p0 / C[size, must]</li>
 </ol>
+</blockquote>
+<blockquote>
 <p>其中p0是在prob[i - 1, j]下不取当前组的概率。如果采用顺推的方法，应该可以避免p0 != 1 - p的这个问题，不过prob[i, j]的含义就应该变化为ij状态下，当前组还没取的概率。总复杂度是O(NM).</p>
+</blockquote>
 <h2 id="poj-2279-mr.-youngs-picture-permutations">POJ 2279 Mr. Young's Picture Permutations</h2>
-<p>Problem: 给定一个矩阵，其中每一行的前X[i]个格子可以用来填数字。设一共有N个格子合法，现要将1到N填进去，且满足矩阵在横向和纵向都满足单调递增。求方案数。 Solution: 钩子公式。先求出以每个格子作为钩子顶点的钩子长度，也即每个格子右方和下方的累计长度A[i, j]，则答案为\(\dfrac{N!}{\sum A[i, j]}\)。</p>
+<p><em>problem</em>:</p>
+<blockquote>
+<p>给定一个矩阵，其中每一行的前X[i]个格子可以用来填数字。设一共有N个格子合法，现要将1到N填进去，且满足矩阵在横向和纵向都满足单调递增。求方案数。</p>
+</blockquote>
+<p><em>solution</em>:</p>
+<blockquote>
+<p>钩子公式。先求出以每个格子作为钩子顶点的钩子长度，也即每个格子右方和下方的累计长度\(A[i, j]\)，则答案为\(\dfrac{N!}{\sum A[i, j]}\)。</p>
+</blockquote>
+<h2 id="soj-1898-tree">SOJ 1898 Tree</h2>
+<p><em>problem</em>:</p>
+<blockquote>
+<p>给定黑白树，每次操作可以交换树上的任意两个点，求把所有黑点连成一个连通块的最少步数。\(N &lt; 100\).</p>
+</blockquote>
+<p><em>solution</em>:</p>
+<blockquote>
+<p>注意到用\(T_i\)子树下\(j\)个黑点的最少步数作为状态来dp是不可行的，因为状态不具有转移性，也就是说，将所有点转移到子节点，再从子节点拿一个交换到根并非最佳策略。但是可以发现在转移的过程中，在当前状态下不动的点可以累加。因此设计状态\(dp[i, j]\)为在\(T_i\)子树中，构造\(j\)个黑点连通块，其中不需要交换的最多的黑点数。于是有</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>\(dp[T_i, j] = \max\{dp[T_x, k] + dp[T_i - T_x, j - k]\}\)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>初始状态下对于所有点来说，如果当前点是黑点，则\(dp[i, 1] = 1\)，否则如果他的后代中有黑点，则\(dp[i, 1] = 0\)。最后答案为\(total - \max\{dp[i, total]\}\)，其中\(total\)为树中所有黑点的个数。</p>
+</blockquote>
 </body>
 </html>
