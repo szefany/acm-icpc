@@ -73,7 +73,7 @@
 <blockquote>
 <p>给定黑白树，每次操作可以交换树上的任意两个点，求把所有黑点连成一个连通块的最少步数。\(N &lt; 100\).</p>
 </blockquote>
-<p>*solution:</p>
+<p><em>solution</em>:</p>
 <blockquote>
 <p>注意到用\(T_i\)子树下\(j\)个黑点的最少步数作为状态来dp是不可行的，因为状态不具有转移性，也就是说，将所有点转移到子节点，再从子节点拿一个交换到根并非最佳策略。但是可以发现在转移的过程中，在当前状态下不动的点可以累加。因此设计状态\(dp[i, j]\)为在\(T_i\)子树中，构造\(j\)个黑点连通块，其中不需要交换的最多的黑点数。于是有</p>
 </blockquote>
@@ -84,6 +84,15 @@
 </blockquote>
 <blockquote>
 <p>初始状态下对于所有点来说，如果当前点是黑点，则\(dp[i, 1] = 1\)，否则如果他的后代中有黑点，则\(dp[i, 1] = 0\)。最后答案为\(total - \max\{dp[i, total]\}\)，其中\(total\)为树中所有黑点的个数。</p>
+</blockquote>
+<h2 id="usaco-march-2008-gold-land-acquisition">USACO March 2008 Gold, Land Acquisition</h2>
+<p><em>problem</em>:</p>
+<blockquote>
+<p>N块土地，每块的长为\(wide[i]\)，宽为\(height[i]\)，如果购买其中的若干块土地，则花费为\(\max\{wide[i]\} \times \max\{height[i]\}\)。求把所有土地买下来的最小花费。\(N \leq 50000\)。</p>
+</blockquote>
+<p><em>solution</em>:</p>
+<blockquote>
+<p>将所有土地按照\(wide\)降序排列。显然对于土地\(i\)来说，如果存在土地\(j\)满足\(wide[i] \lt wide[j]\)且\(height[i] \lt height[j]\)，那么他们肯定可以合并在一起买，可以先把这样的土地给删掉。接下来的DP就很显然了：由于排序后\(wide\)单调减，\(height\)单调增，因此土地必然是连续的一段来买。\(f[i]\)表示购买前i块土地的最小花费，有\(f[i] = \max\{f[j] + wide[j + 1] \times height[i]\}\)。注意到\(wide[j + 1] \times height[i]\}\)满足四边形不等式\(w[i, j] + w[i + 1, j + 1] \leq w[i + 1, j] + w[i, j + 1]\)，因此dp具有决策单调性。用一个栈维护当前决策所覆盖的区间\([start, end]\)，每次加入一个新的决策，就判断在栈顶覆盖的\(start\)位置处当前决策是否更优。如果是，将栈顶弹出；否则对栈顶的区间进行二分，找到最小的当前决策最优的位置\(x\)，将栈顶区间拆成\([start, x]\)并插入新的决策覆盖区间\([x, n]\)。总复杂度是\(O(NlogN)\)。</p>
 </blockquote>
 </body>
 </html>
