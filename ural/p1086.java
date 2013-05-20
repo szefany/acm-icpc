@@ -15,7 +15,7 @@ public class Main {
             for (int j = i; j < M; j += i) {
                 visit[j] = true;
             }
-            for (i ++; i < M && visit[i] == true; ++ i);
+            for (i ++; i < M && visit[i] == true; i ++);
         }
         int test = reader.nextInt();
         while (test -- > 0) {
