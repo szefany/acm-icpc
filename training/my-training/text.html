@@ -94,5 +94,14 @@
 <blockquote>
 <p>将所有土地按照\(wide\)降序排列。显然对于土地\(i\)来说，如果存在土地\(j\)满足\(wide[i] \lt wide[j]\)且\(height[i] \lt height[j]\)，那么他们肯定可以合并在一起买，可以先把这样的土地给删掉。接下来的DP就很显然了：由于排序后\(wide\)单调减，\(height\)单调增，因此土地必然是连续的一段来买。\(f[i]\)表示购买前i块土地的最小花费，有\(f[i] = \max\{f[j] + wide[j + 1] \times height[i]\}\)。注意到\(wide[j + 1] \times height[i]\}\)满足四边形不等式\(w[i, j] + w[i + 1, j + 1] \leq w[i + 1, j] + w[i, j + 1]\)，因此dp具有决策单调性。用一个栈维护当前决策所覆盖的区间\([start, end]\)，每次加入一个新的决策，就判断在栈顶覆盖的\(start\)位置处当前决策是否更优。如果是，将栈顶弹出；否则对栈顶的区间进行二分，找到最小的当前决策最优的位置\(x\)，将栈顶区间拆成\([start, x]\)并插入新的决策覆盖区间\([x, n]\)。总复杂度是\(O(NlogN)\)。</p>
 </blockquote>
+<h2 id="usaco-february-2009-gold-stock">USACO February 2009 Gold, Stock</h2>
+<p><em>problem</em>:</p>
+<blockquote>
+<p>给定S只股票在D天内每天的价位，初始手上的钱为M，求D天之后把股票全部套现能拿到的最多现金。\(S &lt; 50, D &lt; 10\)，答案不超过\(5 \times 10^5\)。</p>
+</blockquote>
+<p><em>solution</em>:</p>
+<blockquote>
+<p>对于每只股票，都可以看作只买一天。如果一只股票持续多天，可以看作在第一天买，第二天卖出，之后在第二天重新买进。将问题转化后，对于每一天来说，问题变成了，每只股票的价格为当前天的价格，获利为下一天的价格与当前的价格差，则问题转化为一个无限背包。复杂度为\(O(NMS)\)。</p>
+</blockquote>
 </body>
 </html>
