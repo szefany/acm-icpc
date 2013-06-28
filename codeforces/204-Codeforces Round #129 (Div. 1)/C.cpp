@@ -11,8 +11,7 @@ int next[N], position[M];
 long long left[N], right[N];
 int n;
 
-int queue[N];
-int current[M];
+int queue[N], int current[M];
 
 double process() {
     memset(next, 1, sizeof(next));
