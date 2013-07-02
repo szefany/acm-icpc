@@ -127,5 +127,20 @@
 <blockquote>
 <p>最后的\(dp[N, MAX, 0]\)就是答案。复杂度挺高的，最后打了一个表。= =</p>
 </blockquote>
+<h2 id="codeforces-277d-google-code-jam">Codeforces 277D Google Code Jam</h2>
+<p><em>problem:</em></p>
+<blockquote>
+<p>Codejam规则，\(N\)道题，每道题有大数据和小数据，提交时小数据必过，过完小数据后可以提交大数据，但大数据有\(Prob_i\)的概率会挂掉。每道题的大小数据都有解决的时间和分值，总罚时为最后一次正确提交的时间。给定每道题的\(Score_small, Score_large, Time_small, Time_large, Prob_i\)，以及比赛时长\(Period\)，求最大期望得分以及在最大得分基础上的最小罚时。</p>
+</blockquote>
+<p><em>solution:</em></p>
+<blockquote>
+<p>考虑我们在所有题目中已经选出了若干题目来做，那么由于得分已经确定，为了使罚时最小，做题时应满足类似SSSSSLLLL的顺序，才能使最后一次提交尽量提前。对于两个题不同的S，先做哪个其实没有影响；而对于两个问题的大数据，可以先对他们的罚时进行排序。对于问题\(a\)和问题\(b\)，如果满足</p>
+</blockquote>
+<blockquote>
+<p>\((1 - P_b) \cdot P_a \cdot T_a + P_b \cdot (T_a + T_b) \lt P_b \cdot T_b \cdot (1 - P_a) + P_a \cdot (T_a + T_b)\)</p>
+</blockquote>
+<blockquote>
+<p>则a比b更优，其中T_a表示a题大数据所需要的时间。利用上述规则进行排序之后，剩下的就是一个简单的dp了。转移时枚举每道题的三种状态：不做，只做小数据，大小数据都做，然后进行转移。对于罚时的转移来说，如果是小数据应放到前面做，如果是大数据应放到队列末端来做，由此转移罚时。</p>
+</blockquote>
 </body>
 </html>
