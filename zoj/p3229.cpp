@@ -32,7 +32,6 @@ struct Flows {
         g[M - edge_count] = Edge(v, u, 0, 0, first[v]), first[v] = M - edge_count;
         id[v] += lower;
         od[u] += lower;
-        // printf("%d %d %d %d\n", u, v, lower, upper);
     }
 
     int queue[N], label[N];
