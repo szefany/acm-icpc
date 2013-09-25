@@ -155,8 +155,13 @@
 
 > $E_x = 1 + \dfrac{m - (x - 1)}{m} * E_{x - 1} + \dfrac{1}{m} \times \sum_{i = 1}^{x - 1} g_{i, x}.$
 
+## HDOJ 4749 Parade Show
 
+*problem:*
 
+> 给定序列A和一个长度为M的排名序列Rank，求将A分割成尽可能多的长度为M的子段，使得每个子段的排名与符合Rank序列。$M \leq N \leq 100000$.
 
+*solution:*
 
+> 在第i位匹配Rank的长度为L时，求当前长度为L的窗口内第i位的排名，以及在Rank序列中第L + 1位在窗口中的排名。匹配成功等价于两个排名相等。
 

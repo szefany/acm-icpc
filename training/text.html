@@ -5,7 +5,8 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title></title>
-  <script src="https://d3eoax9i5htok0.cloudfront.net/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 </head>
 <body>
 <h2 id="codeforces-258d-little-elephant-and-broken-sorting">Codeforces 258D Little Elephant and Broken Sorting</h2>
@@ -20,7 +21,7 @@
 <h2 id="zoj-3509-island-communication">ZOJ 3509 Island Communication</h2>
 <p><em>problem</em>:</p>
 <blockquote>
-<p>无向图，三种操作：加边，删边，查询两点是否连通。删过的边不会再加进来。\(N \lt 500, M \lt 50000\).</p>
+<p>无向图，三种操作：加边，删边，查询两点是否连通。删过的边不会再加进来。<span class="math">\(N \lt 500, M \lt 50000\)</span>.</p>
 </blockquote>
 <p><em>solution</em>:</p>
 <blockquote>
@@ -29,16 +30,16 @@
 <h2 id="codeforces-235b-lets-play-osu">Codeforces 235B Let's Play Osu!</h2>
 <p><em>problem</em>:</p>
 <blockquote>
-<p>连续进行N次操作，每次操作有prob[i]的概率画O，(1 - prob[i])的概率画X。对于操作完得到的序列，连续的x个O可以累加x^2的分数，序列总得分为每段连续的O的得分之和。求期望得分。\(N \lt 100000\).</p>
+<p>连续进行N次操作，每次操作有prob[i]的概率画O，(1 - prob[i])的概率画X。对于操作完得到的序列，连续的x个O可以累加x^2的分数，序列总得分为每段连续的O的得分之和。求期望得分。<span class="math">\(N \lt 100000\)</span>.</p>
 </blockquote>
 <p><em>solution</em>:</p>
 <blockquote>
-<p>dp[i]表示序列的前i项的期望得分，则dp[i] = dp[i - 1] + g[i]，其中g[i]为当前第i位的得分。显然，这一位有prob[i]的概率是一段O的末尾，得分应累加prob[i] * 1。在此基础上，有prob[i] * prob[i - 1]的概率是以OO作为末尾，此时最后一位的价值为4 - 1 = 3，其中有1分已经在prob[i]的部分算过，因此累加得分是prob[i] * prob[i - 1] * 2。以此类推，可以得到\(g[i] = prob[i] \times 1 + prob[i] \times prob[i - 1] \times 2 + \ldots + \prod_{j = 1}^{i} prob[j]\)。这里g[i]可以从g[i - 1]推过来，总复杂度是O(n)。</p>
+<p>dp[i]表示序列的前i项的期望得分，则dp[i] = dp[i - 1] + g[i]，其中g[i]为当前第i位的得分。显然，这一位有prob[i]的概率是一段O的末尾，得分应累加prob[i] * 1。在此基础上，有prob[i] * prob[i - 1]的概率是以OO作为末尾，此时最后一位的价值为4 - 1 = 3，其中有1分已经在prob[i]的部分算过，因此累加得分是prob[i] * prob[i - 1] * 2。以此类推，可以得到<span class="math">\(g[i] = prob[i] \times 1 + prob[i] \times prob[i - 1] \times 2 + \ldots + \prod_{j = 1}^{i} prob[j]\)</span>。这里g[i]可以从g[i - 1]推过来，总复杂度是O(n)。</p>
 </blockquote>
 <h2 id="codeforces-229e-gifts">Codeforces 229E Gifts</h2>
 <p><em>problem</em>:</p>
 <blockquote>
-<p>M种礼物，每种礼物若干个，有不同的价值，需要在所有礼物中选择N个出来。每选择一组中的s个，对方会在这一组中随机返回s个回来。选的时候采取最优策略，即选择一种取法，尽量使自己拿到最大的N个。如果有多种取法，在其中随机选择一种。问最终能拿到最大的N个礼物的概率。\(N, M \lt 1000\).</p>
+<p>M种礼物，每种礼物若干个，有不同的价值，需要在所有礼物中选择N个出来。每选择一组中的s个，对方会在这一组中随机返回s个回来。选的时候采取最优策略，即选择一种取法，尽量使自己拿到最大的N个。如果有多种取法，在其中随机选择一种。问最终能拿到最大的N个礼物的概率。<span class="math">\(N, M \lt 1000\)</span>.</p>
 </blockquote>
 <p><em>solution</em>:</p>
 <blockquote>
@@ -66,78 +67,78 @@
 </blockquote>
 <p><em>solution</em>:</p>
 <blockquote>
-<p>钩子公式。先求出以每个格子作为钩子顶点的钩子长度，也即每个格子右方和下方的累计长度\(A[i, j]\)，则答案为\(\dfrac{N!}{\sum A[i, j]}\)。</p>
+<p>钩子公式。先求出以每个格子作为钩子顶点的钩子长度，也即每个格子右方和下方的累计长度<span class="math">\(A[i, j]\)</span>，则答案为<span class="math">\(\dfrac{N!}{\sum A[i, j]}\)</span>。</p>
 </blockquote>
 <h2 id="soj-1898-tree">SOJ 1898 Tree</h2>
 <p><em>problem</em>:</p>
 <blockquote>
-<p>给定黑白树，每次操作可以交换树上的任意两个点，求把所有黑点连成一个连通块的最少步数。\(N &lt; 100\).</p>
+<p>给定黑白树，每次操作可以交换树上的任意两个点，求把所有黑点连成一个连通块的最少步数。<span class="math">\(N &lt; 100\)</span>.</p>
 </blockquote>
 <p><em>solution</em>:</p>
 <blockquote>
-<p>注意到用\(T_i\)子树下\(j\)个黑点的最少步数作为状态来dp是不可行的，因为状态不具有转移性，也就是说，将所有点转移到子节点，再从子节点拿一个交换到根并非最佳策略。但是可以发现在转移的过程中，在当前状态下不动的点可以累加。因此设计状态\(dp[i, j]\)为在\(T_i\)子树中，构造\(j\)个黑点连通块，其中不需要交换的最多的黑点数。于是有</p>
+<p>注意到用<span class="math">\(T_i\)</span>子树下<span class="math">\(j\)</span>个黑点的最少步数作为状态来dp是不可行的，因为状态不具有转移性，也就是说，将所有点转移到子节点，再从子节点拿一个交换到根并非最佳策略。但是可以发现在转移的过程中，在当前状态下不动的点可以累加。因此设计状态<span class="math">\(dp[i, j]\)</span>为在<span class="math">\(T_i\)</span>子树中，构造<span class="math">\(j\)</span>个黑点连通块，其中不需要交换的最多的黑点数。于是有</p>
 </blockquote>
 <blockquote>
 <blockquote>
-<p>\(dp[T_i, j] = \max\{dp[T_x, k] + dp[T_i - T_x, j - k]\}\)</p>
+<p><span class="math">\(dp[T_i, j] = \max\{dp[T_x, k] + dp[T_i - T_x, j - k]\}\)</span></p>
 </blockquote>
 </blockquote>
 <blockquote>
-<p>初始状态下对于所有点来说，如果当前点是黑点，则\(dp[i, 1] = 1\)，否则如果他的后代中有黑点，则\(dp[i, 1] = 0\)。最后答案为\(total - \max\{dp[i, total]\}\)，其中\(total\)为树中所有黑点的个数。</p>
+<p>初始状态下对于所有点来说，如果当前点是黑点，则<span class="math">\(dp[i, 1] = 1\)</span>，否则如果他的后代中有黑点，则<span class="math">\(dp[i, 1] = 0\)</span>。最后答案为<span class="math">\(total - \max\{dp[i, total]\}\)</span>，其中<span class="math">\(total\)</span>为树中所有黑点的个数。</p>
 </blockquote>
 <h2 id="usaco-march-2008-gold-land-acquisition">USACO March 2008 Gold, Land Acquisition</h2>
 <p><em>problem</em>:</p>
 <blockquote>
-<p>N块土地，每块的长为\(wide[i]\)，宽为\(height[i]\)，如果购买其中的若干块土地，则花费为\(\max\{wide[i]\} \times \max\{height[i]\}\)。求把所有土地买下来的最小花费。\(N \leq 50000\)。</p>
+<p>N块土地，每块的长为<span class="math">\(wide[i]\)</span>，宽为<span class="math">\(height[i]\)</span>，如果购买其中的若干块土地，则花费为<span class="math">\(\max\{wide[i]\} \times \max\{height[i]\}\)</span>。求把所有土地买下来的最小花费。<span class="math">\(N \leq 50000\)</span>。</p>
 </blockquote>
 <p><em>solution</em>:</p>
 <blockquote>
-<p>将所有土地按照\(wide\)降序排列。显然对于土地\(i\)来说，如果存在土地\(j\)满足\(wide[i] \lt wide[j]\)且\(height[i] \lt height[j]\)，那么他们肯定可以合并在一起买，可以先把这样的土地给删掉。接下来的DP就很显然了：由于排序后\(wide\)单调减，\(height\)单调增，因此土地必然是连续的一段来买。\(f[i]\)表示购买前i块土地的最小花费，有\(f[i] = \max\{f[j] + wide[j + 1] \times height[i]\}\)。注意到\(wide[j + 1] \times height[i]\}\)满足四边形不等式\(w[i, j] + w[i + 1, j + 1] \leq w[i + 1, j] + w[i, j + 1]\)，因此dp具有决策单调性。用一个栈维护当前决策所覆盖的区间\([start, end]\)，每次加入一个新的决策，就判断在栈顶覆盖的\(start\)位置处当前决策是否更优。如果是，将栈顶弹出；否则对栈顶的区间进行二分，找到最小的当前决策最优的位置\(x\)，将栈顶区间拆成\([start, x]\)并插入新的决策覆盖区间\([x, n]\)。总复杂度是\(O(NlogN)\)。</p>
+<p>将所有土地按照<span class="math">\(wide\)</span>降序排列。显然对于土地<span class="math">\(i\)</span>来说，如果存在土地<span class="math">\(j\)</span>满足<span class="math">\(wide[i] \lt wide[j]\)</span>且<span class="math">\(height[i] \lt height[j]\)</span>，那么他们肯定可以合并在一起买，可以先把这样的土地给删掉。接下来的DP就很显然了：由于排序后<span class="math">\(wide\)</span>单调减，<span class="math">\(height\)</span>单调增，因此土地必然是连续的一段来买。<span class="math">\(f[i]\)</span>表示购买前i块土地的最小花费，有<span class="math">\(f[i] = \max\{f[j] + wide[j + 1] \times height[i]\}\)</span>。注意到<span class="math">\(wide[j + 1] \times height[i]\}\)</span>满足四边形不等式<span class="math">\(w[i, j] + w[i + 1, j + 1] \leq w[i + 1, j] + w[i, j + 1]\)</span>，因此dp具有决策单调性。用一个栈维护当前决策所覆盖的区间<span class="math">\([start, end]\)</span>，每次加入一个新的决策，就判断在栈顶覆盖的<span class="math">\(start\)</span>位置处当前决策是否更优。如果是，将栈顶弹出；否则对栈顶的区间进行二分，找到最小的当前决策最优的位置<span class="math">\(x\)</span>，将栈顶区间拆成<span class="math">\([start, x]\)</span>并插入新的决策覆盖区间<span class="math">\([x, n]\)</span>。总复杂度是<span class="math">\(O(NlogN)\)</span>。</p>
 </blockquote>
 <h2 id="usaco-february-2009-gold-stock">USACO February 2009 Gold, Stock</h2>
 <p><em>problem</em>:</p>
 <blockquote>
-<p>给定S只股票在D天内每天的价位，初始手上的钱为M，求D天之后把股票全部套现能拿到的最多现金。\(S &lt; 50, D &lt; 10\)，答案不超过\(5 \times 10^5\)。</p>
+<p>给定S只股票在D天内每天的价位，初始手上的钱为M，求D天之后把股票全部套现能拿到的最多现金。<span class="math">\(S &lt; 50, D &lt; 10\)</span>，答案不超过<span class="math">\(5 \times 10^5\)</span>。</p>
 </blockquote>
 <p><em>solution</em>:</p>
 <blockquote>
-<p>对于每只股票，都可以看作只买一天。如果一只股票持续多天，可以看作在第一天买，第二天卖出，之后在第二天重新买进。将问题转化后，对于每一天来说，问题变成了，每只股票的价格为当前天的价格，获利为下一天的价格与当前的价格差，则问题转化为一个无限背包。复杂度为\(O(NMS)\)。</p>
+<p>对于每只股票，都可以看作只买一天。如果一只股票持续多天，可以看作在第一天买，第二天卖出，之后在第二天重新买进。将问题转化后，对于每一天来说，问题变成了，每只股票的价格为当前天的价格，获利为下一天的价格与当前的价格差，则问题转化为一个无限背包。复杂度为<span class="math">\(O(NMS)\)</span>。</p>
 </blockquote>
 <h2 id="zoj-3512-financial-fraud">ZOJ 3512 Financial Fraud</h2>
 <p><em>problem</em>:</p>
 <blockquote>
-<p>给定序列A，求单调不减的序列B，满足\(|A_1 - B_1| + |A_2 - B_2| + \ldots + |A_n - B_n|\)最小。\(N \leq 50000\)。</p>
+<p>给定序列A，求单调不减的序列B，满足<span class="math">\(|A_1 - B_1| + |A_2 - B_2| + \ldots + |A_n - B_n|\)</span>最小。<span class="math">\(N \leq 50000\)</span>。</p>
 </blockquote>
 <p><em>solution</em>:</p>
 <blockquote>
-<p>对于一段连续递减的序列，全部变成中位数是最好的选择。考虑当前已经计算出了序列前\(i\)位的答案，其中前\(i\)位被划分成了若干段连续相同的B序列：\((B_1, B_1, \ldots, B_1), \ldots, (B_m, B_m, \ldots, B_m)\)。对于第\((i + 1)\)位来说，如果他大于\(B_m\)，则单独划为一组；否则跟前一组\(B_m\)合并，求出\(B_m\)这一组控制下的A序列和\(A_{i+1}\)的中位数作为新的\(B_m\)，并一直往前合并。实现时需要维护序列的中位数（即前k小）并支持合并操作，因此使用左偏树来维护每一组的B序列。</p>
+<p>对于一段连续递减的序列，全部变成中位数是最好的选择。考虑当前已经计算出了序列前<span class="math">\(i\)</span>位的答案，其中前<span class="math">\(i\)</span>位被划分成了若干段连续相同的B序列：<span class="math">\((B_1, B_1, \ldots, B_1), \ldots, (B_m, B_m, \ldots, B_m)\)</span>。对于第<span class="math">\((i + 1)\)</span>位来说，如果他大于<span class="math">\(B_m\)</span>，则单独划为一组；否则跟前一组<span class="math">\(B_m\)</span>合并，求出<span class="math">\(B_m\)</span>这一组控制下的A序列和<span class="math">\(A_{i+1}\)</span>的中位数作为新的<span class="math">\(B_m\)</span>，并一直往前合并。实现时需要维护序列的中位数（即前k小）并支持合并操作，因此使用左偏树来维护每一组的B序列。</p>
 </blockquote>
 <h2 id="ural-1946-chinese-hockey-3">URAL 1946 Chinese Hockey 3</h2>
 <p><em>problem:</em></p>
 <blockquote>
-<p>\(N\)个人进行单循环比赛，每场比赛的比分可能是3:0或者2:1。每个人最后的得分为各场得分之和，求最后将所有得分降序排列后有多少种不同的方案。\(N \lt 50.\)</p>
+<p><span class="math">\(N\)</span>个人进行单循环比赛，每场比赛的比分可能是3:0或者2:1。每个人最后的得分为各场得分之和，求最后将所有得分降序排列后有多少种不同的方案。<span class="math">\(N \lt 50.\)</span></p>
 </blockquote>
 <p><em>solution:</em></p>
 <blockquote>
-<p>注意到，所有场次下来之后所有人的得分之和是确定的。考虑\(dp[i, j, k]\)表示还剩下\(i\)个人，之前\((n - i)\)个人的最小值为\(j\)，之前\((n - i)\)个人与所有人进行的比赛中，有\(k\)分被分到了剩下的\(i\)个人里面。转移的时候枚举第\(i\)个人的得分\(l\)，得到</p>
+<p>注意到，所有场次下来之后所有人的得分之和是确定的。考虑<span class="math">\(dp[i, j, k]\)</span>表示还剩下<span class="math">\(i\)</span>个人，之前<span class="math">\((n - i)\)</span>个人的最小值为<span class="math">\(j\)</span>，之前<span class="math">\((n - i)\)</span>个人与所有人进行的比赛中，有<span class="math">\(k\)</span>分被分到了剩下的<span class="math">\(i\)</span>个人里面。转移的时候枚举第<span class="math">\(i\)</span>个人的得分<span class="math">\(l\)</span>，得到</p>
 </blockquote>
 <blockquote>
-<p>\(dp[i, j, k] = \sum_{l = 0}^{\min\{j, k + 3(i - 1)\}} \{dp[i - 1, l, k + 3(i - 1) - l]\}\)</p>
+<p><span class="math">\(dp[i, j, k] = \sum_{l = 0}^{\min\{j, k + 3(i - 1)\}} \{dp[i - 1, l, k + 3(i - 1) - l]\}\)</span></p>
 </blockquote>
 <blockquote>
-<p>最后的\(dp[N, MAX, 0]\)就是答案。复杂度挺高的，最后打了一个表。= =</p>
+<p>最后的<span class="math">\(dp[N, MAX, 0]\)</span>就是答案。复杂度挺高的，最后打了一个表。= =</p>
 </blockquote>
 <h2 id="codeforces-277d-google-code-jam">Codeforces 277D Google Code Jam</h2>
 <p><em>problem:</em></p>
 <blockquote>
-<p>Codejam规则，\(N\)道题，每道题有大数据和小数据，提交时小数据必过，过完小数据后可以提交大数据，但大数据有\(Prob_i\)的概率会挂掉。每道题的大小数据都有解决的时间和分值，总罚时为最后一次正确提交的时间。给定每道题的\(Score_small, Score_large, Time_small, Time_large, Prob_i\)，以及比赛时长\(Period\)，求最大期望得分以及在最大得分基础上的最小罚时。</p>
+<p>Codejam规则，<span class="math">\(N\)</span>道题，每道题有大数据和小数据，提交时小数据必过，过完小数据后可以提交大数据，但大数据有<span class="math">\(Prob_i\)</span>的概率会挂掉。每道题的大小数据都有解决的时间和分值，总罚时为最后一次正确提交的时间。给定每道题的<span class="math">\(Score_small, Score_large, Time_small, Time_large, Prob_i\)</span>，以及比赛时长<span class="math">\(Period\)</span>，求最大期望得分以及在最大得分基础上的最小罚时。</p>
 </blockquote>
 <p><em>solution:</em></p>
 <blockquote>
-<p>考虑我们在所有题目中已经选出了若干题目来做，那么由于得分已经确定，为了使罚时最小，做题时应满足类似SSSSSLLLL的顺序，才能使最后一次提交尽量提前。对于两个题不同的S，先做哪个其实没有影响；而对于两个问题的大数据，可以先对他们的罚时进行排序。对于问题\(a\)和问题\(b\)，如果满足</p>
+<p>考虑我们在所有题目中已经选出了若干题目来做，那么由于得分已经确定，为了使罚时最小，做题时应满足类似SSSSSLLLL的顺序，才能使最后一次提交尽量提前。对于两个题不同的S，先做哪个其实没有影响；而对于两个问题的大数据，可以先对他们的罚时进行排序。对于问题<span class="math">\(a\)</span>和问题<span class="math">\(b\)</span>，如果满足</p>
 </blockquote>
 <blockquote>
-<p>\((1 - P_b) \cdot P_a \cdot T_a + P_b \cdot (T_a + T_b) \lt P_b \cdot T_b \cdot (1 - P_a) + P_a \cdot (T_a + T_b)\)</p>
+<p><span class="math">\((1 - P_b) \cdot P_a \cdot T_a + P_b \cdot (T_a + T_b) \lt P_b \cdot T_b \cdot (1 - P_a) + P_a \cdot (T_a + T_b)\)</span></p>
 </blockquote>
 <blockquote>
 <p>则a比b更优，其中T_a表示a题大数据所需要的时间。利用上述规则进行排序之后，剩下的就是一个简单的dp了。转移时枚举每道题的三种状态：不做，只做小数据，大小数据都做，然后进行转移。对于罚时的转移来说，如果是小数据应放到前面做，如果是大数据应放到队列末端来做，由此转移罚时。</p>
@@ -145,16 +146,16 @@
 <h2 id="ural-1932-the-secret-of-identifier">URAL 1932 The Secret of Identifier</h2>
 <p><em>problem:</em></p>
 <blockquote>
-<p>给定\(N\)个四位字符串，分别求其中对应的\(k\)位不同的有多少对，\(k\) from 1 to 4. \(N \leq 65536\).</p>
+<p>给定<span class="math">\(N\)</span>个四位字符串，分别求其中对应的<span class="math">\(k\)</span>位不同的有多少对，<span class="math">\(k\)</span> from 1 to 4. <span class="math">\(N \leq 65536\)</span>.</p>
 </blockquote>
 <p><em>solution:</em></p>
 <blockquote>
-<p>把问题补集转化为求\(k\)位相同的对数。\(k = 4\)时直接把所有字符串扔进去统计即可。\(k = 3\)时，统计枚举任意三位，统计仅有这三位相同的对数，这一步可以通过枚举位数之后统计这三位相等的对数减去四位均相等的对数得到，例如(1110) = (111X) - (1111)。\(k = 2\)时同理，(1100) = (11XX) - (1110) - (1101) - (1111)，即对于剩下的位数直接枚举子集即可。</p>
+<p>把问题补集转化为求<span class="math">\(k\)</span>位相同的对数。<span class="math">\(k = 4\)</span>时直接把所有字符串扔进去统计即可。<span class="math">\(k = 3\)</span>时，统计枚举任意三位，统计仅有这三位相同的对数，这一步可以通过枚举位数之后统计这三位相等的对数减去四位均相等的对数得到，例如(1110) = (111X) - (1111)。<span class="math">\(k = 2\)</span>时同理，(1100) = (11XX) - (1110) - (1101) - (1111)，即对于剩下的位数直接枚举子集即可。</p>
 </blockquote>
 <h2 id="hdoj-4652-dice">HDOJ 4652 Dice</h2>
 <p><em>problem:</em></p>
 <blockquote>
-<p>给定一个\(M\)面的骰子，每面有不同权值。连续投掷直到最后\(N\)次投掷的结果均不相同，求投掷的期望次数。</p>
+<p>给定一个<span class="math">\(M\)</span>面的骰子，每面有不同权值。连续投掷直到最后<span class="math">\(N\)</span>次投掷的结果均不相同，求投掷的期望次数。</p>
 </blockquote>
 <p><em>solution:</em></p>
 <blockquote>
@@ -162,16 +163,25 @@
 </blockquote>
 <blockquote>
 <ol style="list-style-type: decimal">
-<li>考虑\(E_x\)为当前末尾\(x\)次结果不同时，到达结束状态所需要的期望步数。显然\(E_N = 0\), 而\(E_0\)为所求答案。转移时，有\(\dfrac{x}{m - x}\)的概率转移到\((x + 1)\)，此外有\(\dfrac{1}{m}\)的概率转移到\([1, x]\)中的任意一个，于是可以得到递推式。观察式子发现\(E_x\)是一个与\(E_1\)到\(E_{x + 1}\)都有关联的数，而递推顺序是从大到小，不能直接递推。因此可以利用生成函数，令\(E_x = A_x \times E_1 + B_x\)，代入计算即可。</li>
+<li>考虑<span class="math">\(E_x\)</span>为当前末尾<span class="math">\(x\)</span>次结果不同时，到达结束状态所需要的期望步数。显然<span class="math">\(E_N = 0\)</span>, 而<span class="math">\(E_0\)</span>为所求答案。转移时，有<span class="math">\(\dfrac{x}{m - x}\)</span>的概率转移到<span class="math">\((x + 1)\)</span>，此外有<span class="math">\(\dfrac{1}{m}\)</span>的概率转移到<span class="math">\([1, x]\)</span>中的任意一个，于是可以得到递推式。观察式子发现<span class="math">\(E_x\)</span>是一个与<span class="math">\(E_1\)</span>到<span class="math">\(E_{x + 1}\)</span>都有关联的数，而递推顺序是从大到小，不能直接递推。因此可以利用生成函数，令<span class="math">\(E_x = A_x \times E_1 + B_x\)</span>，代入计算即可。</li>
 </ol>
 </blockquote>
 <blockquote>
 <ol start="2" style="list-style-type: decimal">
-<li>考虑\(E_x\)为<strong>第一次</strong>到达当前状态的期望步数，因而\(E_0 = 0\), \(E_N\)为所求。转移时，有\(\dfrac{m - (x - 1)}{m}\)的概率从\((x - 1)\)转移过来，此外分别有\(\dfrac{1}{m}\)的概率从\([1, x - 1]\)中的某个\(i\)经过若干步走到\(x\)。记\(g_{i, x}\)为从\(i\)走到\(x\)的期望，则有\(g_{i, x} = g_x - g_i\)。由此可以得到</li>
+<li>考虑<span class="math">\(E_x\)</span>为<strong>第一次</strong>到达当前状态的期望步数，因而<span class="math">\(E_0 = 0\)</span>, <span class="math">\(E_N\)</span>为所求。转移时，有<span class="math">\(\dfrac{m - (x - 1)}{m}\)</span>的概率从<span class="math">\((x - 1)\)</span>转移过来，此外分别有<span class="math">\(\dfrac{1}{m}\)</span>的概率从<span class="math">\([1, x - 1]\)</span>中的某个<span class="math">\(i\)</span>经过若干步走到<span class="math">\(x\)</span>。记<span class="math">\(g_{i, x}\)</span>为从<span class="math">\(i\)</span>走到<span class="math">\(x\)</span>的期望，则有<span class="math">\(g_{i, x} = g_x - g_i\)</span>。由此可以得到</li>
 </ol>
 </blockquote>
 <blockquote>
-<p>\(E_x = 1 + \dfrac{m - (x - 1)}{m} * E_{x - 1} + \dfrac{1}{m} \times \sum_{i = 1}^{x - 1} g_{i, x}.\)</p>
+<p><span class="math">\(E_x = 1 + \dfrac{m - (x - 1)}{m} * E_{x - 1} + \dfrac{1}{m} \times \sum_{i = 1}^{x - 1} g_{i, x}.\)</span></p>
+</blockquote>
+<h2 id="hdoj-4749-parade-show">HDOJ 4749 Parade Show</h2>
+<p><em>problem:</em></p>
+<blockquote>
+<p>给定序列A和一个长度为M的排名序列Rank，求将A分割成尽可能多的长度为M的子段，使得每个子段的排名与符合Rank序列。<span class="math">\(M \leq N \leq 100000\)</span>.</p>
+</blockquote>
+<p><em>solution:</em></p>
+<blockquote>
+<p>在第i位匹配Rank的长度为L时，求当前长度为L的窗口内第i位的排名，以及在Rank序列中第L + 1位在窗口中的排名。匹配成功等价于两个排名相等。</p>
 </blockquote>
 </body>
 </html>
