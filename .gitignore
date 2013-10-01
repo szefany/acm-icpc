@@ -4,6 +4,8 @@ output
 *.in
 *.out
 
+text.md
+
 [A-Z]
 
 *~
