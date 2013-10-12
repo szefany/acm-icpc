@@ -1,6 +1,5 @@
 #include <cstdio>
 #include <cstring>
-#include <algorithm>
 
 const int N = 100000 + 10;
 
@@ -21,8 +20,7 @@ int main() {
             queue[++ length] = ')';
         }
     }
-    int a = 0;
-    int b = 0;
+    int a = 0, b = 0;
     for (int i = 1; i <= length; ++ i) {
         a += queue[i] == '(';
         b += queue[i] == ')';
