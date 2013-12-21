@@ -24,11 +24,6 @@ public:
                 }
             }
         }
-        /*
-        for (int i = 0; i < n; ++ i) {
-            puts(available[i] ? "Yes" : "No");
-        }
-        */
         solve(s, s.length() - 1, answer);
         return answer;
     }
